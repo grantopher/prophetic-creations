@@ -1,0 +1,33 @@
+{
+  "name": "prophetic_node",
+  "description": "An art website for the prophetic arts.",
+  "main": "index.html",
+  "authors": [
+    "grantopher <shadowcarson@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "web",
+    "angular",
+    "node",
+    "express",
+    "material",
+    "art",
+    "gallery"
+  ],
+  "moduleType": [],
+  "homepage": "/home",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.11.4",
+    "angular": "~1.4.7",
+    "angular-ui-router": "~0.2.15"
+  }
+}
