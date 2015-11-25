@@ -8,10 +8,6 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-// database
-
-var postgres = require('pg');
-
 var app = express();
 
 // view engine setup
@@ -31,14 +27,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function(req, res, next) {
   res.sendFile(__dirname + '/index.html');
 });
+// load api files
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+var db = require('./db.js');
+var validate = require('./models/validate.js');
+
+app.post('/user', function (request, response) {
+  console.log(request.body.data);
+  console.log(validate(request.body.data));
+  response.send('thank you for your data');
 });
 
+
+
+
+// var user_api = require(__dirname + '/apis/user.api.js');
+
+// catch 404 and forward to error handler
 // error handlers
 
 // development error handler
@@ -62,10 +67,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-// handle db
-var connectionString = 'postgres://localhost:5432/prophetic_creations';
-var client = new postgres.Client(connectionString);
-client.connect();
 
 module.exports = app;
